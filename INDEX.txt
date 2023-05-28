@@ -14,3 +14,17 @@ Untracked files: Archivos sin monitorear
 
 git add .				Agrega todos los archivos al repo
 
+Changes to be committed: Archivos para ser cargados
+
+use "git rm --cached <file>..." to unstage: Para dejar de monitorear archivo
+
+git commit -m "mensaje"			comentar la modificación
+
+Si sale error de configuración: 
+
+$git config --global user.email "email"
+
+$git config --global user.name "nombre"
+
+
+
