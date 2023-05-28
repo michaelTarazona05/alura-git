@@ -1,0 +1,16 @@
+Clase de GIT
+
+git --version				verificar instalación.
+
+dir(windowa o ls(Linux)			ver directorio y sus carpetas		
+
+cd					cambiar de carpeta
+
+git init(master)			creación de repositorio
+
+git status				Ver estado de archivos
+
+Untracked files: Archivos sin monitorear
+
+git add .				Agrega todos los archivos al repo
+
