@@ -26,5 +26,15 @@ $git config --global user.email "email"
 
 $git config --global user.name "nombre"
 
+git log 				Ver historico de modificiaciones
+
+git log --oneline			Historico resumen en una linea
+
+git log -p	(:q)Exit		Ampliar información historico
+
+git log --pretty="format:%H" (shift+insert)	Forma customizada
+
+$ git log --pretty="format:%h %s"	visualizar campos relevantes
+
 
 
