@@ -432,103 +432,10 @@ $ cd ../..
 mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA
 $ cd GIT/
 
-Modificamos el elemento de lista sobre Docker en el archivo de la carpeta GIT y luego agregamos los cambios y commiteamos en la rama master
-
-mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/GIT (master)
-$ git add .
-
-mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/GIT (master)
-$ git status
-On branch master
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-        modified:   index.html
-
-
-mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/GIT (master)
-$ git commit -m "Corrigiendo el nombre del curso de Docker"
-[master eda0820] Corrigiendo el nombre del curso de Docker
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-Unificamos los cambios en la rama titulo con los de la rama master mediante MERGE, se genera descripcion del merge y si no lo cambiamos utilizamos :x
-
-mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/GIT (master)
-$ git merge titulo
-Auto-merging index.html
-Merge made by the 'ort' strategy.
- INDEX.txt  | 240 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- index.html |   2 +-
- 2 files changed, 241 insertions(+), 1 deletion(-)
-
-Verificamos el historial de modificaciones y observamos que faltan los commits de la rama titulo
-
-mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/GIT (master)
-$ git log
-commit ad31de4f06ca700220770edaeab8fc002ad4a927 (HEAD -> master)
-Merge: eda0820 a48b7aa
-Author: Michael Tarazona <michaeltara05@gmail.com>
-Date:   Sun May 28 22:53:24 2023 -0500
-
-    Merge branch 'titulo'
-
-commit eda0820ade21ba469adbf6f9f93da39be46e6a38
-Author: Michael Tarazona <michaeltara05@gmail.com>
-Date:   Sun May 28 22:51:48 2023 -0500
-
-    Corrigiendo el nombre del curso de Docker
-
-commit a48b7aa4eedb02e5d3f4de48eab9ff78941c6102 (titulo)
-Author: Michael Tarazona <michaeltara05@gmail.com>
-Date:   Sun May 28 22:45:59 2023 -0500
-
-    Cambiando lista de Docker
-
-commit bd15b7adaa4aba34cc4691825ceeb4909dd58ec7
-Author: Michael Tarazona <michaeltara05@gmail.com>
-Date:   Sun May 28 22:03:58 2023 -0500
-
-Para vaciar todos los commits de las ramas a una rama indicada, utilizamos REBASE
-
-Para visualizar de forma más grafica el historial ramificado utilizamos --graph
-
-mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/GIT (master)
-$ git log --graph
-*   commit ad31de4f06ca700220770edaeab8fc002ad4a927 (HEAD -> master)
-|\  Merge: eda0820 a48b7aa
-| | Author: Michael Tarazona <michaeltara05@gmail.com>
-| | Date:   Sun May 28 22:53:24 2023 -0500
-| |
-| |     Merge branch 'titulo'
-| |
-| * commit a48b7aa4eedb02e5d3f4de48eab9ff78941c6102 (titulo)
-| | Author: Michael Tarazona <michaeltara05@gmail.com>
-| | Date:   Sun May 28 22:45:59 2023 -0500
-| |
-| |     Cambiando lista de Docker
-| |
-| * commit bd15b7adaa4aba34cc4691825ceeb4909dd58ec7
-| | Author: Michael Tarazona <michaeltara05@gmail.com>
-| | Date:   Sun May 28 22:03:58 2023 -0500
-| |
-| |     Modificando el titulo
-| |
-| * commit ad9d14ae0228ef22a2dd0ed56496dd414ea6a10a
-| | Author: Michael Tarazona <michaeltara05@gmail.com>
-| | Date:   Sun May 28 21:57:29 2023 -0500
-| |
-:
-
-Para salir :q (Quit) y cambiamos a la rama titulo para hacer modificaciones
-
-mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/GIT (master)
-$ git checkout titulo
-Switched to branch 'titulo'
-M       INDEX.txt
-
 mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/GIT (titulo)
-$
-
-Modifcamos algo en el titulo del html de la carpeta GIT y verificamos status, commiteamos en nuestra rama titulo
+$ git branch
+  master
+* titulo
 
 
 
