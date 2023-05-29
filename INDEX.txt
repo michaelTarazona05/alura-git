@@ -349,6 +349,100 @@ c4b77d7 Agregando gitignore
 e97046b Creando archivos index con lista de cursos y comandos git
 20573d8 Creando archivos index con lista de cursos y comandos git
 
+Nos dirigimos al proyecto de Ana y creamos una nueva ramificación de lista para Ana
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (master)
+$ git checkout -b lista
+Switched to a new branch 'lista'
+
+Modificamos el listado en el index.html desde la carpeta proyecto de Ana y verificamos los cambios desde git en la rama lista de Ana
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (lista)
+$ git status
+On branch lista
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Agregamos los cambios y commiteamos
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (lista)
+$ git add .
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (lista)
+$ git commit -m "Agregando curso de Kubernetes en el listado"
+[lista ce29a92] Agregando curso de Kubernetes en el listado
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Verificamos el historial de cambios y se observa el cambio de la rama master a lista
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (lista)
+$ git log
+commit ce29a9245ccadaa252a8ef275d4b05c416b4be5e (HEAD -> lista)
+Author: Michael Tarazona <michaeltara05@gmail.com>
+Date:   Sun May 28 22:15:38 2023 -0500
+
+    Agregando curso de Kubernetes en el listado
+
+commit 03ce87824669c07a1b22c1ff78a4868e0b8aa903 (servidorlocal/master, master)
+Author: Michael Tarazona <michaeltara05@gmail.com>
+Date:   Sun May 28 20:25:54 2023 -0500
+
+    Indicar como se clona en repositorios locales y servidor
+
+commit d74db9f2cbddc510c57ad23a0ff725c27eccf227
+Author: Michael Tarazona <michaeltara05@gmail.com>
+Date:   Sun May 28 19:21:24 2023 -0500
+
+    Renombrando curso de Integración Contínua
+
+commit bc2a0970c5ae21cb0fa14921cf2f74f5f3a87730
+Author: Michael Tarazona <michaeltara05@gmail.com>
+Date:   Sun May 28 17:57:55 2023 -0500
+
+    Actualizando block de not
+
+Como trabajar con ramas de desarrollo diferentes, en el proyecto verificamos las ramas creadas.
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (lista)
+$ git branch
+* lista
+  master
+
+Cambiamos de rama y verificamos
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (lista)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'servidorlocal/master'.
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (master)
+$ git branch
+  lista
+* master
+
+Nos dirigimos a la carpeta GIT y cambiamos a la rama titulo
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (master)
+$ cd ../..
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA
+$ cd GIT/
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/GIT (titulo)
+$ git branch
+  master
+* titulo
+
+
+
+
+
+
+
 
 
 
