@@ -528,7 +528,8 @@ M       INDEX.txt
 mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/GIT (titulo)
 $
 
-Modifcamos algo en el titulo del html de la carpeta GIT y verificamos status de nuestra rama titulo
+Modifcamos algo en el titulo del html de la carpeta GIT y verificamos status, commiteamos en nuestra rama titulo
+
 
 
 
