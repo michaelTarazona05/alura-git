@@ -317,6 +317,41 @@ M       INDEX.txt
 
 Modificamos el index en la carpeta GIT, verificamos status, add y commit a las modificaciones
 
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/GIT (titulo)
+$ git status
+On branch titulo
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   INDEX.txt
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/GIT (titulo)
+$ git add .
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/GIT (titulo)
+$ git commit -m "Modificación ramificaciones"
+[titulo ad9d14a] Modificación ramificaciones
+ 2 files changed, 112 insertions(+), 1 deletion(-)
+
+Verificamos el historico de cambios en una linea
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/GIT (titulo)
+$ git log --oneline
+ad9d14a (HEAD -> titulo) Modificación ramificaciones
+03ce878 (servidorlocal/master, origin/master, master) Indicar como se clona en repositorios locales y servidor
+d74db9f Renombrando curso de Integración Contínua
+bc2a097 Actualizando block de notas
+c4b77d7 Agregando gitignore
+6b4b4b0 Se agrega linea meta viewport responsivo
+e97046b Creando archivos index con lista de cursos y comandos git
+20573d8 Creando archivos index con lista de cursos y comandos git
+
+
+
+
 
 
 
