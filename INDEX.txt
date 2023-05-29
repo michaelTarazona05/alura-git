@@ -36,5 +36,191 @@ git log --pretty="format:%H" (shift+insert)	Forma customizada
 
 $ git log --pretty="format:%h %s"	visualizar campos relevantes
 
+mkdir (servidor)			Crear nueva carpeta
+
+cd servidor/				acceder a la carpeta
+
+git init --bare	(Copiar camino del repo entre "c/")	servidor para guardar copias de modificasiones
+
+git remote				listar servidores remotos que conoce el repositorio
+
+git remote add nombreservidorlocal "camino del servidor"
+
+git remote	Verificamos existencia
+
+git remote -v 	Verificar dirección del servidor local y al servidor (fetch - lugar del que se extraer) (push - lugar al que se envia) 
+
+$ git clone "/C/Users/mtarazona/Documents/Técnico en Programación Java Script/ALURA/serviorRemoto/" proyecto
+
+El repositorio clonado no tiene información debido a que no hemos push(empujado) información al repositoriolocal
+
+Por lo que ingresaremos al repositorio principal para hacer push hasta el repositorio local
+
+primero se indica el destino (servidor) y luego la rama que contiene el repositorio principal
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/GIT (master)
+$ git push servidorlocal master
+
+Ingresamos al usuario Ana y carpeta proyecto, verificamos el contenido con ls
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (master)
+$ ls
+
+Pero no aparece nada ya que la información esta en el servidorlocal, debemos llevarlo al repositoriolocal de Ana.
+
+Verificamos existencia de repositorios de Ana, por defecto se coloca el nombre origin al agregar un repo
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (master)
+$ git remote
+origin
+
+Cambiamos el nombre del repo origin por servidorlocal
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (master)
+$ git remote rename origin servidorlocal
+
+Verificamos repositorio en Ana
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (master)
+$ git remote
+servidorlocal
+
+Ahora agregamos al repositorio local llamado servidorlocal, la información de la rama que esta en el servidor remoto
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (master)
+$ git pull servidorlocal master
+remote: Enumerating objects: 16, done.
+remote: Counting objects: 100% (16/16), done.
+remote: Compressing objects: 100% (15/15), done.
+remote: Total 16 (delta 4), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (16/16), 2.06 KiB | 15.00 KiB/s, done.
+From C:/Users/mtarazona/Documents/Técnico en Programación Java Script/ALURA/serviorRemoto
+ * branch            master     -> FETCH_HEAD
+ * [new branch]      master     -> servidorlocal/master
+
+Se crea nueva rama y verificamos el contenido del repo con ls
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (master)
+$ ls
+INDEX.txt  index.html
+
+Hacemos modificación en el archivo html desde el usuario de Ana y verificamos con status
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (master)
+$ git status
+On branch master
+Your branch is up to date with 'servidorlocal/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Agregamos los cambios al repo interno de Ana y commiteamos
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (master)
+$ git add index.html
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (master)
+$ git commit -m "Renombrando curso de Integración Contínua"
+[master d74db9f] Renombrando curso de Integración Contínua
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Ahora debemos enviar al Servidor push(empujar)
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/Ana/proyecto (master)
+$ git push servidorlocal master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 376 bytes | 376.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+To C:/Users/mtarazona/Documents/Técnico en Programación Java Script/ALURA/serviorRemoto/
+   bc2a097..d74db9f  master -> master
+
+Para que el proyecto principal en la carpeta Git vea los cambios, debemos hacer pull
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/GIT (master)
+$ git pull servidorlocal master
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 356 bytes | 8.00 KiB/s, done.
+From C:/Users/mtarazona/Documents/Técnico en Programación Java Script/ALURA/serviorRemoto
+ * branch            master     -> FETCH_HEAD
+   bc2a097..d74db9f  master     -> servidorlocal/master
+Updating bc2a097..d74db9f
+Fast-forward
+ index.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Verificamos el historico de cambias con log y con p para saber en que linea
+
+mtarazona@LPMEDSTDCMT3 MINGW64 ~/Documents/Técnico en Programación Java Script/ALURA/GIT (master)
+$ git log -p
+commit d74db9f2cbddc510c57ad23a0ff725c27eccf227 (HEAD -> master, servidorlocal/master)
+Author: Michael Tarazona <michaeltara05@gmail.com>
+Date:   Sun May 28 19:21:24 2023 -0500
+
+    Renombrando curso de Integración Contínua
+
+diff --git a/index.html b/index.html
+index 9d00690..d1abcf5 100644
+--- a/index.html
++++ b/index.html
+@@ -10,7 +10,7 @@
+          <li> Vagrant </li>
+          <li> Docker </li>
+          <li> Ansible </li>
+-         <li> Integración continua </li>
++         <li> Integración continua: Madurez y Productividad en el Desarrollo de Software</li>
+      </ul>
+ </body>
+ </html>
+\ No newline at end of file
+
+:
+commit d74db9f2cbddc510c57ad23a0ff725c27eccf227 (HEAD -> master, servidorlocal/master)
+Author: Michael Tarazona <michaeltara05@gmail.com>
+Date:   Sun May 28 19:21:24 2023 -0500
+
+    Renombrando curso de Integración Contínua
+
+diff --git a/index.html b/index.html
+index 9d00690..d1abcf5 100644
+--- a/index.html
++++ b/index.html
+@@ -10,7 +10,7 @@
+          <li> Vagrant </li>
+          <li> Docker </li>
+          <li> Ansible </li>
+-         <li> Integración continua </li>
++         <li> Integración continua: Madurez y Productividad en el Desarrollo de Software</li>
+      </ul>
+ </body>
+ </html>
+\ No newline at end of file
+
+:
+
+con :q (quit) salimos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
